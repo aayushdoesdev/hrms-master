@@ -21,6 +21,7 @@ const selectedDept = ref(null);
 
 const isEditMode = ref(false);
 const editingIndex = ref(null);
+const isVerifiedLoading = ref(false)
 
 const showModal = ref(false);
 const form = ref({
@@ -85,6 +86,7 @@ const handleView = (employee) => {
 };
 
 const requestOtp = async () => {
+  isVerifiedLoading.value = true
   const payload = {
     companyEmail: form.value.companyEmail,
   };
@@ -92,6 +94,8 @@ const requestOtp = async () => {
     await superAdminStore.getSuperAdminOtp(payload);
   } catch (error) {
     console.error(error);
+  } finally{
+    isVerifiedLoading.value = false
   }
 };
 
@@ -245,9 +249,10 @@ const handleDelete = async(employee) => {
             />
             <button
               @click="requestOtp"
+              :disabled="isVerifiedLoading"
               class="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
             >
-              Verify
+              {{ isVerifiedLoading ? "Verifing..." : "Verify" }}
             </button>
           </div>
         </div>

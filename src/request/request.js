@@ -3,7 +3,7 @@ import axios from 'axios'
 // === BASE CONFIG ===
 
 // Set your API base URL once
-const BASE_URL = 'https://wzl6mwg3-5000.inc1.devtunnels.ms' // Replace with your real API base URL
+const BASE_URL = 'https://hrmapi.xtention.in' // Replace with your real API base URL
 axios.defaults.baseURL = BASE_URL
 
 // ✅ Enable sending credentials (cookies)

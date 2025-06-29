@@ -18,7 +18,7 @@ export const useAuthStore = defineStore('auth', () => {
 
   const loginAdmin = async (payload) => {
     const res = await axios.post(
-      'https://wzl6mwg3-5000.inc1.devtunnels.ms/master/login',
+      'https://hrmapi.xtention.in/master/login',
       payload
     )
 
